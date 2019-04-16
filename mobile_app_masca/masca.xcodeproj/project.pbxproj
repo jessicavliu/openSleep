@@ -1,0 +1,551 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3908C8D421C1A5890016CEE0 /* porcupine in Resources */ = {isa = PBXBuildFile; fileRef = 3908C8D321C1A5890016CEE0 /* porcupine */; };
+		3908C8D821C1A6780016CEE0 /* libpv_porcupine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3908C8D721C1A6780016CEE0 /* libpv_porcupine.a */; };
+		392212E321A5D3C40002A9DC /* ball_point_pen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 392212E021A5D3C30002A9DC /* ball_point_pen@2x.png */; };
+		392212E421A5D3C40002A9DC /* ball_point_pen@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 392212E121A5D3C40002A9DC /* ball_point_pen@3x.png */; };
+		392212E521A5D3C40002A9DC /* ball_point_pen.png in Resources */ = {isa = PBXBuildFile; fileRef = 392212E221A5D3C40002A9DC /* ball_point_pen.png */; };
+		392212EA21A5D4560002A9DC /* report_card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 392212E721A5D4560002A9DC /* report_card@2x.png */; };
+		392212EB21A5D4560002A9DC /* report_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 392212E821A5D4560002A9DC /* report_card.png */; };
+		392212EC21A5D4560002A9DC /* report_card@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 392212E921A5D4560002A9DC /* report_card@3x.png */; };
+		392212F021A5D4790002A9DC /* happy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 392212ED21A5D4780002A9DC /* happy@2x.png */; };
+		392212F121A5D4790002A9DC /* happy@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 392212EE21A5D4780002A9DC /* happy@3x.png */; };
+		392212F221A5D4790002A9DC /* happy.png in Resources */ = {isa = PBXBuildFile; fileRef = 392212EF21A5D4790002A9DC /* happy.png */; };
+		392212F621A5D5AF0002A9DC /* RecordingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392212F521A5D5AF0002A9DC /* RecordingsTableViewController.swift */; };
+		392212F821A5D6770002A9DC /* Recordings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392212F721A5D6770002A9DC /* Recordings.swift */; };
+		392212FC21A5E5830002A9DC /* visible@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 392212F921A5E5820002A9DC /* visible@3x.png */; };
+		392212FD21A5E5830002A9DC /* visible.png in Resources */ = {isa = PBXBuildFile; fileRef = 392212FA21A5E5820002A9DC /* visible.png */; };
+		392212FE21A5E5830002A9DC /* visible@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 392212FB21A5E5830002A9DC /* visible@2x.png */; };
+		3922130021A89D470002A9DC /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392212FF21A89D470002A9DC /* Alerts.swift */; };
+		3922130421A8A6650002A9DC /* circled_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3922130121A8A6650002A9DC /* circled_play@2x.png */; };
+		3922130521A8A6650002A9DC /* circled_play@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3922130221A8A6650002A9DC /* circled_play@3x.png */; };
+		3922130621A8A6650002A9DC /* circled_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 3922130321A8A6650002A9DC /* circled_play.png */; };
+		3922130E21A9B4B00002A9DC /* Dormio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3922130D21A9B4B00002A9DC /* Dormio.swift */; };
+		3922131021A9C4E00002A9DC /* SleepAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3922130F21A9C4E00002A9DC /* SleepAPI.swift */; };
+		3922131221AA64630002A9DC /* FlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3922131121AA64630002A9DC /* FlowViewController.swift */; };
+		3934E9C9219F5312007049D8 /* HeartQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3934E9C8219F5312007049D8 /* HeartQueue.swift */; };
+		3956DBE921AB27B40039E652 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3956DBE821AB27B40039E652 /* Flow.swift */; };
+		3956DBED21AB49410039E652 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3956DBEA21AB49400039E652 /* play@2x.png */; };
+		3956DBEE21AB49410039E652 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 3956DBEB21AB49410039E652 /* play.png */; };
+		3956DBEF21AB49410039E652 /* play@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3956DBEC21AB49410039E652 /* play@3x.png */; };
+		3956DBF321AB5B0F0039E652 /* fluid.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3956DBF221AB5B0F0039E652 /* fluid.jpeg */; };
+		3956DBF821AB70C10039E652 /* skin.png in Resources */ = {isa = PBXBuildFile; fileRef = 3956DBF721AB70C10039E652 /* skin.png */; };
+		3956DBFD21AB71780039E652 /* dreamcatcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 3956DBF921AB71770039E652 /* dreamcatcher.png */; };
+		3956DBFE21AB71780039E652 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 3956DBFA21AB71770039E652 /* heart.png */; };
+		3956DBFF21AB71780039E652 /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 3956DBFB21AB71780039E652 /* microphone.png */; };
+		3956DC0021AB71790039E652 /* fist.png in Resources */ = {isa = PBXBuildFile; fileRef = 3956DBFC21AB71780039E652 /* fist.png */; };
+		3956DC0221AB727A0039E652 /* dreamcatcher2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3956DC0121AB72790039E652 /* dreamcatcher2.png */; };
+		3956DC0421AB72ED0039E652 /* dreamcatcher_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 3956DC0321AB72ED0039E652 /* dreamcatcher_big.png */; };
+		3956DC0621AB80C80039E652 /* microphone_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 3956DC0521AB80C70039E652 /* microphone_big.png */; };
+		3956DC0A21AC82690039E652 /* mind2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3956DC0921AC82680039E652 /* mind2.png */; };
+		3956DC0C21ACA48E0039E652 /* microphone_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 3956DC0B21ACA48D0039E652 /* microphone_red.png */; };
+		3956DC0E21ADC9050039E652 /* dormio.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 3956DC0D21ADC8DA0039E652 /* dormio.m4v */; };
+		395F384921F6B4DD00291568 /* thinkOfRecordingsTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395F384821F6B4DD00291568 /* thinkOfRecordingsTableDelegate.swift */; };
+		3997730E21E28F030098CB68 /* Alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3997730D21E28F030098CB68 /* Alarm.mp3 */; };
+		3997731021E29ECE0098CB68 /* DropDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3997730F21E29ECE0098CB68 /* DropDetector.swift */; };
+		3997731221F505400098CB68 /* ThinkOfRecordingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3997731121F505400098CB68 /* ThinkOfRecordingTableViewController.swift */; };
+		3997731821F50F5F0098CB68 /* ThinkOfRecordingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3997731721F50F5F0098CB68 /* ThinkOfRecordingCell.swift */; };
+		39F0C10621B23F3B001F985A /* ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0C10521B23F3B001F985A /* ID.swift */; };
+		9051B70A218C8BE20018B3E1 /* simulatedData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9051B709218C8BE20018B3E1 /* simulatedData.csv */; };
+		FF6F7C551FDA1BE60034F388 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F7C541FDA1BE60034F388 /* AppDelegate.swift */; };
+		FF6F7C571FDA1BE60034F388 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F7C561FDA1BE60034F388 /* ViewController.swift */; };
+		FF6F7C5A1FDA1BE60034F388 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF6F7C581FDA1BE60034F388 /* Main.storyboard */; };
+		FF6F7C5C1FDA1BE60034F388 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF6F7C5B1FDA1BE60034F388 /* Assets.xcassets */; };
+		FF6F7C5F1FDA1BE60034F388 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF6F7C5D1FDA1BE60034F388 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3908C8D321C1A5890016CEE0 /* porcupine */ = {isa = PBXFileReference; lastKnownFileType = folder; path = porcupine; sourceTree = "<group>"; };
+		3908C8D521C1A5B20016CEE0 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		3908C8D721C1A6780016CEE0 /* libpv_porcupine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpv_porcupine.a; path = openSleep/porcupine/libpv_porcupine.a; sourceTree = "<group>"; };
+		392212E021A5D3C30002A9DC /* ball_point_pen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ball_point_pen@2x.png"; sourceTree = "<group>"; };
+		392212E121A5D3C40002A9DC /* ball_point_pen@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ball_point_pen@3x.png"; sourceTree = "<group>"; };
+		392212E221A5D3C40002A9DC /* ball_point_pen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_point_pen.png; sourceTree = "<group>"; };
+		392212E721A5D4560002A9DC /* report_card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "report_card@2x.png"; sourceTree = "<group>"; };
+		392212E821A5D4560002A9DC /* report_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = report_card.png; sourceTree = "<group>"; };
+		392212E921A5D4560002A9DC /* report_card@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "report_card@3x.png"; sourceTree = "<group>"; };
+		392212ED21A5D4780002A9DC /* happy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "happy@2x.png"; sourceTree = "<group>"; };
+		392212EE21A5D4780002A9DC /* happy@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "happy@3x.png"; sourceTree = "<group>"; };
+		392212EF21A5D4790002A9DC /* happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = happy.png; sourceTree = "<group>"; };
+		392212F521A5D5AF0002A9DC /* RecordingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsTableViewController.swift; sourceTree = "<group>"; };
+		392212F721A5D6770002A9DC /* Recordings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recordings.swift; sourceTree = "<group>"; };
+		392212F921A5E5820002A9DC /* visible@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visible@3x.png"; sourceTree = "<group>"; };
+		392212FA21A5E5820002A9DC /* visible.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visible.png; sourceTree = "<group>"; };
+		392212FB21A5E5830002A9DC /* visible@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visible@2x.png"; sourceTree = "<group>"; };
+		392212FF21A89D470002A9DC /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		3922130121A8A6650002A9DC /* circled_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circled_play@2x.png"; sourceTree = "<group>"; };
+		3922130221A8A6650002A9DC /* circled_play@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circled_play@3x.png"; sourceTree = "<group>"; };
+		3922130321A8A6650002A9DC /* circled_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circled_play.png; sourceTree = "<group>"; };
+		3922130D21A9B4B00002A9DC /* Dormio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dormio.swift; sourceTree = "<group>"; };
+		3922130F21A9C4E00002A9DC /* SleepAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepAPI.swift; sourceTree = "<group>"; };
+		3922131121AA64630002A9DC /* FlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowViewController.swift; sourceTree = "<group>"; };
+		3934E9C8219F5312007049D8 /* HeartQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartQueue.swift; sourceTree = "<group>"; };
+		3956DBE821AB27B40039E652 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
+		3956DBEA21AB49400039E652 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
+		3956DBEB21AB49410039E652 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		3956DBEC21AB49410039E652 /* play@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@3x.png"; sourceTree = "<group>"; };
+		3956DBF021AB53070039E652 /* dormio2.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = dormio2.m4v; sourceTree = "<group>"; };
+		3956DBF221AB5B0F0039E652 /* fluid.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fluid.jpeg; sourceTree = "<group>"; };
+		3956DBF721AB70C10039E652 /* skin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skin.png; sourceTree = "<group>"; };
+		3956DBF921AB71770039E652 /* dreamcatcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dreamcatcher.png; sourceTree = "<group>"; };
+		3956DBFA21AB71770039E652 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		3956DBFB21AB71780039E652 /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone.png; sourceTree = "<group>"; };
+		3956DBFC21AB71780039E652 /* fist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fist.png; sourceTree = "<group>"; };
+		3956DC0121AB72790039E652 /* dreamcatcher2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dreamcatcher2.png; sourceTree = "<group>"; };
+		3956DC0321AB72ED0039E652 /* dreamcatcher_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dreamcatcher_big.png; sourceTree = "<group>"; };
+		3956DC0521AB80C70039E652 /* microphone_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone_big.png; sourceTree = "<group>"; };
+		3956DC0921AC82680039E652 /* mind2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mind2.png; sourceTree = "<group>"; };
+		3956DC0B21ACA48D0039E652 /* microphone_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone_red.png; sourceTree = "<group>"; };
+		3956DC0D21ADC8DA0039E652 /* dormio.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = dormio.m4v; sourceTree = "<group>"; };
+		395F384821F6B4DD00291568 /* thinkOfRecordingsTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thinkOfRecordingsTableDelegate.swift; sourceTree = "<group>"; };
+		3997730D21E28F030098CB68 /* Alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Alarm.mp3; sourceTree = "<group>"; };
+		3997730F21E29ECE0098CB68 /* DropDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDetector.swift; sourceTree = "<group>"; };
+		3997731121F505400098CB68 /* ThinkOfRecordingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkOfRecordingTableViewController.swift; sourceTree = "<group>"; };
+		3997731721F50F5F0098CB68 /* ThinkOfRecordingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkOfRecordingCell.swift; sourceTree = "<group>"; };
+		39F0C10521B23F3B001F985A /* ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID.swift; sourceTree = "<group>"; };
+		9051B709218C8BE20018B3E1 /* simulatedData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = simulatedData.csv; sourceTree = "<group>"; };
+		FF6F7C511FDA1BE60034F388 /* masca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = masca.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF6F7C541FDA1BE60034F388 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FF6F7C561FDA1BE60034F388 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FF6F7C591FDA1BE60034F388 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FF6F7C5B1FDA1BE60034F388 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF6F7C5E1FDA1BE60034F388 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FF6F7C601FDA1BE60034F388 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FF6F7C4E1FDA1BE60034F388 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3908C8D821C1A6780016CEE0 /* libpv_porcupine.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3908C8D621C1A6780016CEE0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3908C8D721C1A6780016CEE0 /* libpv_porcupine.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		392212E621A5D3E40002A9DC /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				3956DBF921AB71770039E652 /* dreamcatcher.png */,
+				3956DC0521AB80C70039E652 /* microphone_big.png */,
+				3997730D21E28F030098CB68 /* Alarm.mp3 */,
+				3956DC0B21ACA48D0039E652 /* microphone_red.png */,
+				3956DC0321AB72ED0039E652 /* dreamcatcher_big.png */,
+				3956DBFC21AB71780039E652 /* fist.png */,
+				3956DC0921AC82680039E652 /* mind2.png */,
+				3956DBFA21AB71770039E652 /* heart.png */,
+				3956DBFB21AB71780039E652 /* microphone.png */,
+				3956DC0121AB72790039E652 /* dreamcatcher2.png */,
+				3956DBF721AB70C10039E652 /* skin.png */,
+				3956DBF221AB5B0F0039E652 /* fluid.jpeg */,
+				3956DBEB21AB49410039E652 /* play.png */,
+				3956DC0D21ADC8DA0039E652 /* dormio.m4v */,
+				3956DBEA21AB49400039E652 /* play@2x.png */,
+				3956DBF021AB53070039E652 /* dormio2.m4v */,
+				3956DBEC21AB49410039E652 /* play@3x.png */,
+				3922130321A8A6650002A9DC /* circled_play.png */,
+				3922130121A8A6650002A9DC /* circled_play@2x.png */,
+				3922130221A8A6650002A9DC /* circled_play@3x.png */,
+				392212FA21A5E5820002A9DC /* visible.png */,
+				392212FB21A5E5830002A9DC /* visible@2x.png */,
+				392212F921A5E5820002A9DC /* visible@3x.png */,
+				392212EF21A5D4790002A9DC /* happy.png */,
+				392212ED21A5D4780002A9DC /* happy@2x.png */,
+				392212EE21A5D4780002A9DC /* happy@3x.png */,
+				392212E821A5D4560002A9DC /* report_card.png */,
+				392212E721A5D4560002A9DC /* report_card@2x.png */,
+				392212E921A5D4560002A9DC /* report_card@3x.png */,
+				392212E221A5D3C40002A9DC /* ball_point_pen.png */,
+				392212E021A5D3C30002A9DC /* ball_point_pen@2x.png */,
+				392212E121A5D3C40002A9DC /* ball_point_pen@3x.png */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		FF6F7C481FDA1BE50034F388 = {
+			isa = PBXGroup;
+			children = (
+				FF6F7C531FDA1BE60034F388 /* masca */,
+				FF6F7C521FDA1BE60034F388 /* Products */,
+				3908C8D621C1A6780016CEE0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FF6F7C521FDA1BE60034F388 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF6F7C511FDA1BE60034F388 /* masca.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF6F7C531FDA1BE60034F388 /* masca */ = {
+			isa = PBXGroup;
+			children = (
+				3908C8D321C1A5890016CEE0 /* porcupine */,
+				392212E621A5D3E40002A9DC /* assets */,
+				9051B709218C8BE20018B3E1 /* simulatedData.csv */,
+				FF6F7C541FDA1BE60034F388 /* AppDelegate.swift */,
+				FF6F7C561FDA1BE60034F388 /* ViewController.swift */,
+				FF6F7C581FDA1BE60034F388 /* Main.storyboard */,
+				3997731121F505400098CB68 /* ThinkOfRecordingTableViewController.swift */,
+				FF6F7C5B1FDA1BE60034F388 /* Assets.xcassets */,
+				FF6F7C5D1FDA1BE60034F388 /* LaunchScreen.storyboard */,
+				FF6F7C601FDA1BE60034F388 /* Info.plist */,
+				3934E9C8219F5312007049D8 /* HeartQueue.swift */,
+				392212F521A5D5AF0002A9DC /* RecordingsTableViewController.swift */,
+				392212F721A5D6770002A9DC /* Recordings.swift */,
+				3997730F21E29ECE0098CB68 /* DropDetector.swift */,
+				392212FF21A89D470002A9DC /* Alerts.swift */,
+				3922130D21A9B4B00002A9DC /* Dormio.swift */,
+				3922130F21A9C4E00002A9DC /* SleepAPI.swift */,
+				3922131121AA64630002A9DC /* FlowViewController.swift */,
+				395F384821F6B4DD00291568 /* thinkOfRecordingsTableDelegate.swift */,
+				3908C8D521C1A5B20016CEE0 /* module.modulemap */,
+				3956DBE821AB27B40039E652 /* Flow.swift */,
+				39F0C10521B23F3B001F985A /* ID.swift */,
+				3997731721F50F5F0098CB68 /* ThinkOfRecordingCell.swift */,
+			);
+			path = masca;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FF6F7C501FDA1BE60034F388 /* masca */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF6F7C631FDA1BE60034F388 /* Build configuration list for PBXNativeTarget "masca" */;
+			buildPhases = (
+				FF6F7C4D1FDA1BE60034F388 /* Sources */,
+				FF6F7C4E1FDA1BE60034F388 /* Frameworks */,
+				FF6F7C4F1FDA1BE60034F388 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = masca;
+			productName = blueMarc;
+			productReference = FF6F7C511FDA1BE60034F388 /* masca.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FF6F7C491FDA1BE50034F388 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Tomas Vega";
+				TargetAttributes = {
+					FF6F7C501FDA1BE60034F388 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = FF6F7C4C1FDA1BE50034F388 /* Build configuration list for PBXProject "masca" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FF6F7C481FDA1BE50034F388;
+			productRefGroup = FF6F7C521FDA1BE60034F388 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FF6F7C501FDA1BE60034F388 /* masca */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FF6F7C4F1FDA1BE60034F388 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3997730E21E28F030098CB68 /* Alarm.mp3 in Resources */,
+				3956DC0E21ADC9050039E652 /* dormio.m4v in Resources */,
+				3956DBFE21AB71780039E652 /* heart.png in Resources */,
+				392212EB21A5D4560002A9DC /* report_card.png in Resources */,
+				392212E321A5D3C40002A9DC /* ball_point_pen@2x.png in Resources */,
+				392212F221A5D4790002A9DC /* happy.png in Resources */,
+				3956DBF821AB70C10039E652 /* skin.png in Resources */,
+				3956DC0021AB71790039E652 /* fist.png in Resources */,
+				3956DC0C21ACA48E0039E652 /* microphone_red.png in Resources */,
+				392212FD21A5E5830002A9DC /* visible.png in Resources */,
+				392212E421A5D3C40002A9DC /* ball_point_pen@3x.png in Resources */,
+				392212FC21A5E5830002A9DC /* visible@3x.png in Resources */,
+				3956DC0621AB80C80039E652 /* microphone_big.png in Resources */,
+				3956DBFF21AB71780039E652 /* microphone.png in Resources */,
+				3922130421A8A6650002A9DC /* circled_play@2x.png in Resources */,
+				392212EC21A5D4560002A9DC /* report_card@3x.png in Resources */,
+				3956DC0A21AC82690039E652 /* mind2.png in Resources */,
+				3922130521A8A6650002A9DC /* circled_play@3x.png in Resources */,
+				FF6F7C5F1FDA1BE60034F388 /* LaunchScreen.storyboard in Resources */,
+				9051B70A218C8BE20018B3E1 /* simulatedData.csv in Resources */,
+				3908C8D421C1A5890016CEE0 /* porcupine in Resources */,
+				3922130621A8A6650002A9DC /* circled_play.png in Resources */,
+				3956DC0421AB72ED0039E652 /* dreamcatcher_big.png in Resources */,
+				3956DBEF21AB49410039E652 /* play@3x.png in Resources */,
+				392212FE21A5E5830002A9DC /* visible@2x.png in Resources */,
+				3956DC0221AB727A0039E652 /* dreamcatcher2.png in Resources */,
+				392212EA21A5D4560002A9DC /* report_card@2x.png in Resources */,
+				3956DBEE21AB49410039E652 /* play.png in Resources */,
+				FF6F7C5C1FDA1BE60034F388 /* Assets.xcassets in Resources */,
+				392212F121A5D4790002A9DC /* happy@3x.png in Resources */,
+				FF6F7C5A1FDA1BE60034F388 /* Main.storyboard in Resources */,
+				392212E521A5D3C40002A9DC /* ball_point_pen.png in Resources */,
+				3956DBF321AB5B0F0039E652 /* fluid.jpeg in Resources */,
+				3956DBED21AB49410039E652 /* play@2x.png in Resources */,
+				3956DBFD21AB71780039E652 /* dreamcatcher.png in Resources */,
+				392212F021A5D4790002A9DC /* happy@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FF6F7C4D1FDA1BE60034F388 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3997731021E29ECE0098CB68 /* DropDetector.swift in Sources */,
+				FF6F7C571FDA1BE60034F388 /* ViewController.swift in Sources */,
+				39F0C10621B23F3B001F985A /* ID.swift in Sources */,
+				395F384921F6B4DD00291568 /* thinkOfRecordingsTableDelegate.swift in Sources */,
+				3956DBE921AB27B40039E652 /* Flow.swift in Sources */,
+				392212F621A5D5AF0002A9DC /* RecordingsTableViewController.swift in Sources */,
+				3934E9C9219F5312007049D8 /* HeartQueue.swift in Sources */,
+				FF6F7C551FDA1BE60034F388 /* AppDelegate.swift in Sources */,
+				3997731221F505400098CB68 /* ThinkOfRecordingTableViewController.swift in Sources */,
+				3922131021A9C4E00002A9DC /* SleepAPI.swift in Sources */,
+				3922130021A89D470002A9DC /* Alerts.swift in Sources */,
+				3922130E21A9B4B00002A9DC /* Dormio.swift in Sources */,
+				392212F821A5D6770002A9DC /* Recordings.swift in Sources */,
+				3922131221AA64630002A9DC /* FlowViewController.swift in Sources */,
+				3997731821F50F5F0098CB68 /* ThinkOfRecordingCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FF6F7C581FDA1BE60034F388 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF6F7C591FDA1BE60034F388 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FF6F7C5D1FDA1BE60034F388 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF6F7C5E1FDA1BE60034F388 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FF6F7C611FDA1BE60034F388 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FF6F7C621FDA1BE60034F388 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FF6F7C641FDA1BE60034F388 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G4UWJJ34TC;
+				INFOPLIST_FILE = masca/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/masca/porcupine",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = FI.openSleep;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/masca";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FF6F7C651FDA1BE60034F388 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G4UWJJ34TC;
+				INFOPLIST_FILE = masca/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/masca/porcupine",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = FI.openSleep;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/masca";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF6F7C4C1FDA1BE50034F388 /* Build configuration list for PBXProject "masca" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF6F7C611FDA1BE60034F388 /* Debug */,
+				FF6F7C621FDA1BE60034F388 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF6F7C631FDA1BE60034F388 /* Build configuration list for PBXNativeTarget "masca" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF6F7C641FDA1BE60034F388 /* Debug */,
+				FF6F7C651FDA1BE60034F388 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FF6F7C491FDA1BE50034F388 /* Project object */;
+}

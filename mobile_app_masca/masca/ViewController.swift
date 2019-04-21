@@ -25,7 +25,7 @@ enum OnsetTrigger {
 class ViewController: UIViewController,
                       UITextFieldDelegate,
                       UIPopoverPresentationControllerDelegate,
-                      DormioDelegate {
+                      DormioDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
   var dormioManager = DormioManager.shared
   var recordingsManager = RecordingsManager.shared

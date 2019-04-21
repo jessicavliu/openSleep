@@ -838,43 +838,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upload a photo! The photo will be a visual stimulus for your memory." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knB-Qk-lG7">
-                                <rect key="frame" x="16" y="79" width="343" height="96"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Cmr-QM-LLq" userLabel="connectButton">
-                                <rect key="frame" x="0.0" y="434" width="375" height="108"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <state key="normal" title="Continue"/>
-                                <connections>
-                                    <action selector="continuePressed:" destination="dqE-X2-kSV" eventType="touchUpInside" id="LUF-6X-riJ"/>
-                                </connections>
-                            </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zoA-78-gXJ">
-                                <rect key="frame" x="62" y="371" width="250" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <segments>
-                                    <segment title="Light"/>
-                                    <segment title="Medium"/>
-                                    <segment title="Deep"/>
-                                </segments>
-                                <connections>
-                                    <action selector="dreamStageChanged:" destination="dqE-X2-kSV" eventType="valueChanged" id="gES-Nl-6rx"/>
-                                </connections>
-                            </segmentedControl>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Kf4-lU-bYT">
-                                <rect key="frame" x="97" y="183" width="180" height="180"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1QL-6z-Cdy">
+                                <rect key="frame" x="0.0" y="50" width="375" height="467"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="251" text="Upload a photo! The photo will be a visual stimulus for your memory." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knB-Qk-lG7">
+                                        <rect key="frame" x="26" y="0.0" width="323.5" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="Kf4-lU-bYT">
+                                        <rect key="frame" x="27.5" y="51" width="320" height="320"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Kf4-lU-bYT" secondAttribute="height" multiplier="1:1" id="yWT-8B-cI1"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Zm1-aw-8wl" appends="YES" id="d7b-yH-Mh0"/>
+                                        </connections>
+                                    </imageView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zoA-78-gXJ">
+                                        <rect key="frame" x="92" y="381" width="191" height="29"/>
+                                        <gestureRecognizers/>
+                                        <segments>
+                                            <segment title="Light"/>
+                                            <segment title="Medium"/>
+                                            <segment title="Deep"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="dreamStageChanged:" destination="dqE-X2-kSV" eventType="valueChanged" id="gES-Nl-6rx"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Cmr-QM-LLq" userLabel="connectButton">
+                                        <rect key="frame" x="128.5" y="419" width="118" height="48"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <state key="normal" title="Continue"/>
+                                        <connections>
+                                            <action selector="continuePressed:" destination="dqE-X2-kSV" eventType="touchUpInside" id="LUF-6X-riJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="1QL-6z-Cdy" firstAttribute="leading" secondItem="6Wv-Fe-JIC" secondAttribute="leading" id="3UI-7o-Aww"/>
+                            <constraint firstItem="1QL-6z-Cdy" firstAttribute="top" secondItem="6Wv-Fe-JIC" secondAttribute="top" constant="30" id="FWn-xb-nep"/>
+                            <constraint firstAttribute="trailing" secondItem="1QL-6z-Cdy" secondAttribute="trailing" id="lhC-b7-Mmb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Wv-Fe-JIC"/>
                     </view>
                     <connections>
@@ -883,6 +895,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imk-1u-yKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Zm1-aw-8wl">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="dqE-X2-kSV" id="mQg-ic-sIu"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5437.6000000000004" y="1277.8110944527737"/>
         </scene>

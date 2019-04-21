@@ -13,7 +13,7 @@ import AVFoundation
 class FlowViewController:
   thinkOfRecordingsTableDelegate,
   DormioDelegate,
-  UITextFieldDelegate {
+  UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
   // Singletons
   var flowManager = FlowManager.shared
@@ -142,6 +142,12 @@ class FlowViewController:
       flowManager.dreamStage = dsc.selectedSegmentIndex
       activeView = 4
     }
+    
+    //TODO: Test this by commenting out dsc and later deleting the whole index
+    if photoStimulusView != nil{
+      activeView = 4
+    }
+    
     if let noc = numOnsetsControl {
       flowManager.numOnsets = noc.selectedSegmentIndex + 1
       print("number of onsets is \(flowManager.numOnsets)")
@@ -637,8 +643,6 @@ class FlowViewController:
     }
   }
   
-  
-  
   // AUTOCOMPLETE
   func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool { //1
 
@@ -729,25 +733,33 @@ class FlowViewController:
     b.title = (b.title == "Edit") ? "Done" : "Edit"
   }
     
-    //MARK: Actions
-    /*@IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
+  //MARK: Actions
+    @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         
-        let imagePickerController = UIImagePickerController();
+        let imagePickerController = UIImagePickerController()
+        
         imagePickerController.sourceType = .photoLibrary
-        imagePickerController.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate;
+        
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
     }
+
     
     //MARK: UIImagePickerControllerDelegate
-    func imagePickerControllerDidCancel(_picker:UIImagePickerController){
+    func imagePickerControllerDidCancel(_
+        _picker:UIImagePickerController){
+        print("cancelling")
         dismiss(animated:true, completion:nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("assigning pick")
         guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
         
         photoStimulusView.image = selectedImage
+        print(photoStimulusView.image == nil)
         
         dismiss(animated: true, completion: nil)
-    }*/
+    }
 }

@@ -93,11 +93,11 @@
 		3956DBEC21AB49410039E652 /* play@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@3x.png"; sourceTree = "<group>"; };
 		3956DBF021AB53070039E652 /* dormio2.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = dormio2.m4v; sourceTree = "<group>"; };
 		3956DBF221AB5B0F0039E652 /* fluid.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fluid.jpeg; sourceTree = "<group>"; };
-		3956DBF721AB70C10039E652 /* skin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skin.png; path = ../../../../../../Downloads/skin.png; sourceTree = "<group>"; };
+		3956DBF721AB70C10039E652 /* skin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skin.png; sourceTree = "<group>"; };
 		3956DBF921AB71770039E652 /* dreamcatcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dreamcatcher.png; sourceTree = "<group>"; };
-		3956DBFA21AB71770039E652 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heart.png; path = ../../../../../../Downloads/heart.png; sourceTree = "<group>"; };
+		3956DBFA21AB71770039E652 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		3956DBFB21AB71780039E652 /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone.png; sourceTree = "<group>"; };
-		3956DBFC21AB71780039E652 /* fist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fist.png; path = ../../../../../../Downloads/fist.png; sourceTree = "<group>"; };
+		3956DBFC21AB71780039E652 /* fist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fist.png; sourceTree = "<group>"; };
 		3956DC0121AB72790039E652 /* dreamcatcher2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dreamcatcher2.png; sourceTree = "<group>"; };
 		3956DC0321AB72ED0039E652 /* dreamcatcher_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dreamcatcher_big.png; sourceTree = "<group>"; };
 		3956DC0521AB80C70039E652 /* microphone_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone_big.png; sourceTree = "<group>"; };
@@ -482,8 +482,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7UQD3GFB9F;
+				DEVELOPMENT_TEAM = G4UWJJ34TC;
 				INFOPLIST_FILE = openSleep/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -493,6 +494,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = FI.openSleep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/openSleep";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -503,8 +505,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7UQD3GFB9F;
+				DEVELOPMENT_TEAM = G4UWJJ34TC;
 				INFOPLIST_FILE = openSleep/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -514,6 +517,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = FI.openSleep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/openSleep";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

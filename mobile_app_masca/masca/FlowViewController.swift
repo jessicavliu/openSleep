@@ -37,8 +37,8 @@ class FlowViewController:
   @IBOutlet weak var EDALabel: UILabel!
   @IBOutlet weak var HRLabel: UILabel!
   @IBOutlet weak var flexLabel: UILabel!
-  
-  @IBOutlet weak var numOnsetsControl: UISegmentedControl!
+  @IBOutlet weak var sleepStageControl: UISegmentedControl!
+  /*@IBOutlet weak var numOnsetsControl: UISegmentedControl!*/
   @IBOutlet weak var sleepMessageLabel: UILabel!
   @IBOutlet weak var microphoneImage: UIImageView!
   @IBOutlet weak var dreamDetectorControl: UISegmentedControl!
@@ -148,11 +148,17 @@ class FlowViewController:
       activeView = 4
     }
     
-    if let noc = numOnsetsControl {
+    /*if let noc = numOnsetsControl {
       flowManager.numOnsets = noc.selectedSegmentIndex + 1
       print("number of onsets is \(flowManager.numOnsets)")
       activeView = 5
+    }*/
+    
+    if let ssc = sleepStageControl{
+        flowManager.sleepStage = ssc.selectedSegmentIndex;
+        activeView = 5;
     }
+    
     if dreamButton != nil {
       dormioManager.delegate = self
       activeView = 6
@@ -197,9 +203,16 @@ class FlowViewController:
     }
   }
   
-  @IBAction func numOnsetsChanged(_ sender: Any) {
+    @IBAction func sleepStageChanged(_ sender: Any) {
+        flowManager.sleepStage = sleepStageControl.selectedSegmentIndex;
+        //debug
+        //TODO: add a mapping from 0 -> REM, 1 -> NREM somewhere
+        print(flowManager.sleepStage)
+    }
+    
+    /*@IBAction func numOnsetsChanged(_ sender: Any) {
     flowManager.numOnsets = numOnsetsControl.selectedSegmentIndex + 1
-  }
+  }*/
   
   /*@IBAction func dreamStageChanged(_ sender: Any) {
     flowManager.dreamStage = dreamStageControl.selectedSegmentIndex
@@ -500,9 +513,10 @@ class FlowViewController:
             if(!self.flowManager.isTimerBased) {
               SleepAPI.apiPost(endpoint: "reportTrigger", json: json)
             }
-            if (self.numOnsets < self.flowManager.numOnsets) {
+            /*if (self.numOnsets < self.flowManager.numOnsets) {
               self.transitionOnsetToSleep()
-            } else {
+            }*/
+            else {
               self.alarmTimer = Timer.scheduledTimer(withTimeInterval: self.flowManager.waitTimeForAlarm, repeats: false, block: { (t) in
                 self.wakeupAlarm()
               })
@@ -547,7 +561,7 @@ class FlowViewController:
     let alert = UIAlertController(title: "Wakeup!", message: "Dreamcatcher has caught \(self.numOnsets) dream(s).", preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "Continue (+1 onset(s))", style: .default, handler: {action in
       if(action.style == .default) {
-        self.flowManager.numOnsets = self.flowManager.numOnsets + 1
+        //self.flowManager.numOnsets = self.flowManager.numOnsets + 1
         self.recordingsManager.stopAlarm()
         self.transitionOnsetToSleep()
       }

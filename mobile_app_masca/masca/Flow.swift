@@ -11,9 +11,10 @@ import Foundation
 class FlowManager : NSObject {
   static let shared = FlowManager()
 
+    var sleepStage: Int = 0;
   var dreamTitle : String?
-  var dreamStage : Int = 0
-  var numOnsets : Int = 3
+  var dreamStage : Int = 0 //0 is REM, 1 is NREM
+  //var numOnsets : Int = 3
   var timeUntilSleep: Int = 60
   var waitTimeForAlarm: Double = 10
   

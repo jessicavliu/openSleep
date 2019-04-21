@@ -32,7 +32,7 @@ class FlowViewController:
   @IBOutlet weak var continue3Button: UIButton!
   @IBOutlet weak var continueTimerBasedButton: UIButton!
   @IBOutlet weak var dreamButton: UIButton!
-  @IBOutlet weak var dreamStageControl: UISegmentedControl!
+  //@IBOutlet weak var dreamStageControl: UISegmentedControl!
   @IBOutlet weak var dreamLabel: UILabel!
   @IBOutlet weak var EDALabel: UILabel!
   @IBOutlet weak var HRLabel: UILabel!
@@ -138,10 +138,10 @@ class FlowViewController:
       timeUntilSleep.addTarget(self, action: #selector(timeUntilSleepDidChange(_:)), for: .editingChanged)
       activeView = 7
     }
-    if let dsc = dreamStageControl {
+    /*if let dsc = dreamStageControl {
       flowManager.dreamStage = dsc.selectedSegmentIndex
       activeView = 4
-    }
+    }*/
     
     //TODO: Test this by commenting out dsc and later deleting the whole index
     if photoStimulusView != nil{
@@ -201,9 +201,9 @@ class FlowViewController:
     flowManager.numOnsets = numOnsetsControl.selectedSegmentIndex + 1
   }
   
-  @IBAction func dreamStageChanged(_ sender: Any) {
+  /*@IBAction func dreamStageChanged(_ sender: Any) {
     flowManager.dreamStage = dreamStageControl.selectedSegmentIndex
-  }
+  }*/
   
   @IBAction func timersPressed(_ sender: Any) {
     // TODO: set timer mode

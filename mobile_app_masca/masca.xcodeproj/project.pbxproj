@@ -54,6 +54,8 @@
 		3997731821F50F5F0098CB68 /* ThinkOfRecordingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3997731721F50F5F0098CB68 /* ThinkOfRecordingCell.swift */; };
 		39F0C10621B23F3B001F985A /* ID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0C10521B23F3B001F985A /* ID.swift */; };
 		9051B70A218C8BE20018B3E1 /* simulatedData.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9051B709218C8BE20018B3E1 /* simulatedData.csv */; };
+		9EB7D10D226D3EA8004123D2 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB7D10C226D3EA8004123D2 /* Alarm.swift */; };
+		9EB7D111226D6804004123D2 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB7D110226D6804004123D2 /* AlarmTableViewCell.swift */; };
 		FF6F7C551FDA1BE60034F388 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F7C541FDA1BE60034F388 /* AppDelegate.swift */; };
 		FF6F7C571FDA1BE60034F388 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6F7C561FDA1BE60034F388 /* ViewController.swift */; };
 		FF6F7C5A1FDA1BE60034F388 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF6F7C581FDA1BE60034F388 /* Main.storyboard */; };
@@ -111,6 +113,8 @@
 		3997731721F50F5F0098CB68 /* ThinkOfRecordingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkOfRecordingCell.swift; sourceTree = "<group>"; };
 		39F0C10521B23F3B001F985A /* ID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ID.swift; sourceTree = "<group>"; };
 		9051B709218C8BE20018B3E1 /* simulatedData.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = simulatedData.csv; sourceTree = "<group>"; };
+		9EB7D10C226D3EA8004123D2 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		9EB7D110226D6804004123D2 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		FF6F7C511FDA1BE60034F388 /* masca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = masca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF6F7C541FDA1BE60034F388 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF6F7C561FDA1BE60034F388 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 				3956DBE821AB27B40039E652 /* Flow.swift */,
 				39F0C10521B23F3B001F985A /* ID.swift */,
 				3997731721F50F5F0098CB68 /* ThinkOfRecordingCell.swift */,
+				9EB7D110226D6804004123D2 /* AlarmTableViewCell.swift */,
+				9EB7D10C226D3EA8004123D2 /* Alarm.swift */,
 			);
 			path = masca;
 			sourceTree = "<group>";
@@ -337,7 +343,9 @@
 				395F384921F6B4DD00291568 /* thinkOfRecordingsTableDelegate.swift in Sources */,
 				3956DBE921AB27B40039E652 /* Flow.swift in Sources */,
 				392212F621A5D5AF0002A9DC /* RecordingsTableViewController.swift in Sources */,
+				9EB7D10D226D3EA8004123D2 /* Alarm.swift in Sources */,
 				3934E9C9219F5312007049D8 /* HeartQueue.swift in Sources */,
+				9EB7D111226D6804004123D2 /* AlarmTableViewCell.swift in Sources */,
 				FF6F7C551FDA1BE60034F388 /* AppDelegate.swift in Sources */,
 				3997731221F505400098CB68 /* ThinkOfRecordingTableViewController.swift in Sources */,
 				3922131021A9C4E00002A9DC /* SleepAPI.swift in Sources */,

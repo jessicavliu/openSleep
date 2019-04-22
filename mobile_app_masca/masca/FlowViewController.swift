@@ -54,6 +54,8 @@ class FlowViewController:
   let timerFalsePositiveAdditionalTime = 60.0
   
   @IBOutlet weak var tableView: UITableView!
+    
+  @IBOutlet weak var alarmTableView: UITableView!
   @IBOutlet weak var photoStimulusView: UIImageView!
     
   var autoCompleteCharacterCount = 0
@@ -171,12 +173,20 @@ class FlowViewController:
     
     getDeviceUUID()
     
+    if let aTV = alarmTableView {
+        alarmTableView.dataSource = self;
+        alarmTableView.delegate = self;
+        print(alarmTableView == nil)
+    }
+    
     if let tV = tableView {
       tableView.dataSource = self
       tableView.delegate = self
+        print(tableView == nil)
     }
-      // Do any additional setup after loading the view.
-  }
+    
+    // Do any additional setup after loading the view.
+}
   
   private func playVideo() {
     guard let path = Bundle.main.path(forResource: "dormio", ofType:"m4v") else {
@@ -736,9 +746,21 @@ class FlowViewController:
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "rememberToThinkOfCell", for: indexPath) as! ThinkOfRecordingCell
-    cell.label?.text = "Remember To Think Of (\(indexPath.row))"
-    return cell
+    //TODO: Put in separate delegate/data source classes
+    if tableView == alarmTableView{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AlarmTableViewCell", for: indexPath) as! AlarmTableViewCell
+        cell.numAlarmLabel?.text = "Alarm \(indexPath.row+1)"
+        return cell
+    }
+    else if tableView == tableView{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "rememberToThinkOfCell", for: indexPath) as! ThinkOfRecordingCell
+        cell.label?.text = "Remember To Think Of (\(indexPath.row))"
+        return cell
+    }
+    else{
+        fatalError("Not from either table")
+        return UITableViewCell()
+    }
   }
   
   @IBAction func startEditing(_ sender: Any) {

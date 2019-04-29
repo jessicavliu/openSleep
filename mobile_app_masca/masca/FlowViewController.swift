@@ -57,6 +57,9 @@ class FlowViewController:
     
   @IBOutlet weak var alarmTableView: UITableView!
   @IBOutlet weak var photoStimulusView: UIImageView!
+    @IBOutlet weak var alarmPicker: UIDatePicker!
+    @IBOutlet weak var alarmLabel: UILabel!
+    @IBOutlet weak var addAlarmButton: UIButton!
     
   var autoCompleteCharacterCount = 0
   var autoCompleteTimer = Timer()
@@ -104,6 +107,9 @@ class FlowViewController:
   var isPhoneDropCalibrating: Bool = false // whether the user is calibrating the time until sleep with drop detection
   var phoneDropCalibrationStartTime: Double = 0.0
   
+  var alarms = [Alarm]()
+  var alarmString: String?
+    
   func getDeviceUUID() {
     if UserDefaults.standard.object(forKey: "phoneUUID") == nil {
       UserDefaults.standard.set(UUID().uuidString, forKey: "phoneUUID")
@@ -185,6 +191,10 @@ class FlowViewController:
         print(tableView == nil)
     }
     
+    if let aP = alarmPicker{
+        alarmPicker.datePickerMode = UIDatePickerMode.time;
+    }
+    
     // Do any additional setup after loading the view.
 }
   
@@ -263,15 +273,14 @@ class FlowViewController:
   @IBAction func recordSleepPressed(_ sender: UIButton) {
     continue3Button.isEnabled = true
     if !isRecording {
-      recordingsManager.startRecordingMulti(mode: 0)
+  recordingsManager.startRecordingMulti(mode: 0)
       sender.isSelected = true
     } else {
-      recordingsManager.stopRecording()
+    recordingsManager.stopRecording()
       sender.isSelected = false
       tableView.reloadData()
     }
     isRecording = !isRecording
-    
   }
   
   @IBAction func continue1Pressed(_ sender: Any) {
@@ -283,6 +292,58 @@ class FlowViewController:
     let newViewController = storyBoard.instantiateViewController(withIdentifier: "step3") as! FlowViewController
     self.navigationController?.pushViewController(newViewController, animated: true)
   }
+    @IBAction func alarmPickerChanged(_ sender: Any) {
+            print("am changing")
+            let alarmFormatter = DateFormatter();
+            print(alarmPicker == nil)
+            
+            /*alarmFormatter.dateStyle = DateFormatter.Style.short*/
+            alarmFormatter.timeStyle = DateFormatter.Style.short
+            
+            /*let strDate = alarmFormatter.string(from: alarmPicker.date)
+            print(strDate)
+            alarmLabel.text = strDate*/
+            
+            alarmString = alarmFormatter.string(from: alarmPicker.date)
+             
+             print(alarmString)
+             
+             alarmLabel.text = alarmString;
+    }
+    
+    @IBAction func addAlarm(_ sender: Any) {
+        print("touched add alarm")
+        print(alarmPicker == nil)
+        
+        //TODO: figure out why this executes on view load instead of when pressing button, and how to make this less hacky
+        if (alarmPicker != nil){
+            let alarm = Alarm(time: alarmPicker.date,isEnabled:true);
+             print(alarm)
+             print("before adding")
+             print(alarms)
+             alarms.append(alarm);
+             print("after adding"
+            )
+             print(alarms)
+          
+            if (alarmTableView != nil){ alarmTableView.reloadData()
+                  print("not nil")
+            }
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "step7") as! FlowViewController
+            self.navigationController?.pushViewController(newViewController, animated: true)
+        }
+
+    }
+    
+    @IBAction func goToAlarmPage(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        //skip the timer for now
+        /*let nextViewControllerID = (flowManager.isTimerBased) ? "timerStep" : "step3";
+         let newViewController = storyBoard.instantiateViewController(withIdentifier: nextViewControllerID) as! FlowViewController*/
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "alarmPicker") as! FlowViewController
+        self.navigationController?.pushViewController(newViewController, animated: true)
+    }
   
   /*@IBAction func continueTimerBasedPressed(_ send: Any) {
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

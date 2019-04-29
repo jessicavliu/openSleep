@@ -109,6 +109,7 @@ class RecordingsManager : NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelega
       let defaults = UserDefaults.standard
       defaults.set(encoded, forKey: "recordings")
     }
+    print(recordings)
   }
   
   func numOfCategories() -> Int {

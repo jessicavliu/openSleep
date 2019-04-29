@@ -9,12 +9,12 @@
 import Foundation
 
 class Alarm{
-    var date: Date = Date()
+    var time: Date = Date()
     var isEnabled: Bool = false
     
-    init(date: Date, enabled: Bool){
-        self.date = date;
-        self.isEnabled = enabled;
+    init(time: Date, isEnabled: Bool){
+        self.time = time;
+        self.isEnabled = isEnabled;
     }
 }
 

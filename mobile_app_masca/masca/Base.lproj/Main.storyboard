@@ -940,27 +940,50 @@
         <!--Flow View Controller-->
         <scene sceneID="rJT-Qq-U7j">
             <objects>
-                <viewController id="jEc-Ws-N0I" customClass="FlowViewController" customModule="masca" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="alarmPicker" id="jEc-Ws-N0I" customClass="FlowViewController" customModule="masca" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7OF-hy-M6G" userLabel="View" customClass="Flow">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="TLz-li-3GC">
-                                <rect key="frame" x="0.0" y="167" width="375" height="216"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HH:MM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mox-Qu-w8P">
+                                <rect key="frame" x="80" y="69" width="214" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="JKi-Je-j7e">
+                                <rect key="frame" x="28" y="149" width="318" height="214"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <date key="date" timeIntervalSinceReferenceDate="577572846.37462997">
-                                    <!--2019-04-21 20:54:06 +0000-->
+                                <date key="date" timeIntervalSinceReferenceDate="578090745.95866001">
+                                    <!--2019-04-27 20:45:45 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="alarmPickerChanged:" destination="jEc-Ws-N0I" eventType="valueChanged" id="umu-ar-YfW"/>
+                                </connections>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwR-WM-n37">
+                                <rect key="frame" x="148" y="395" width="80" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Add Alarm"/>
+                                <connections>
+                                    <action selector="addAlarm:" destination="jEc-Ws-N0I" eventType="touchUpInside" id="PVj-wu-wg9"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="TO3-KR-RIv"/>
                     </view>
+                    <connections>
+                        <outlet property="addAlarmButton" destination="HwR-WM-n37" id="h5N-PM-ocy"/>
+                        <outlet property="alarmLabel" destination="mox-Qu-w8P" id="k3k-P3-yW0"/>
+                        <outlet property="alarmPicker" destination="JKi-Je-j7e" id="50L-vj-aCS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tl0-1k-7Uu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8132" y="1278"/>
+            <point key="canvasLocation" x="8132" y="1277.8110944527737"/>
         </scene>
         <!--Flow View Controller-->
         <scene sceneID="eBJ-le-nO2">
@@ -1233,6 +1256,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdg-cI-TQu">
+                                <rect key="frame" x="87" y="432" width="200" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Add alarm"/>
+                                <connections>
+                                    <action selector="addAlarm:" destination="r1i-lh-Lvo" eventType="touchUpInside" id="Ugl-d6-loq"/>
+                                    <action selector="goToAlarmPage:" destination="r1i-lh-Lvo" eventType="touchUpInside" id="FDF-Tb-u0U"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zN0-DC-Nen"/>

@@ -19,6 +19,7 @@ class FlowViewController:
   var flowManager = FlowManager.shared
   var dormioManager = DormioManager.shared
   var dropDetector = DropDetector.shared
+  var alarmsManager = AlarmsManager.shared
 
   var activeView : Int = -1
   
@@ -53,10 +54,10 @@ class FlowViewController:
   @IBOutlet weak var timerFalsePositiveButton: UIButton!
   let timerFalsePositiveAdditionalTime = 60.0
   
-  @IBOutlet weak var tableView: UITableView!
-    
-  @IBOutlet weak var alarmTableView: UITableView!
-  @IBOutlet weak var photoStimulusView: UIImageView!
+    @IBOutlet weak var thinkingTableView: UITableView!
+    //@IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var alarmTableView: UITableView!
+    @IBOutlet weak var photoStimulusView: UIImageView!
     @IBOutlet weak var alarmPicker: UIDatePicker!
     @IBOutlet weak var alarmLabel: UILabel!
     @IBOutlet weak var addAlarmButton: UIButton!
@@ -107,8 +108,10 @@ class FlowViewController:
   var isPhoneDropCalibrating: Bool = false // whether the user is calibrating the time until sleep with drop detection
   var phoneDropCalibrationStartTime: Double = 0.0
   
-  var alarms = [Alarm]()
+  //var alarms = [Alarm]()
   var alarmString: String?
+    
+    var anAlarmTableDelegate = alarmTableDelegate();
     
   func getDeviceUUID() {
     if UserDefaults.standard.object(forKey: "phoneUUID") == nil {
@@ -181,14 +184,20 @@ class FlowViewController:
     
     if let aTV = alarmTableView {
         alarmTableView.dataSource = self;
-        alarmTableView.delegate = self;
+        alarmTableView.delegate = anAlarmTableDelegate;
         print(alarmTableView == nil)
     }
+    else{
+        print("WHY IS THIS NIL?????")
+    }
     
-    if let tV = tableView {
-      tableView.dataSource = self
-      tableView.delegate = self
-        print(tableView == nil)
+    if let tV = thinkingTableView {
+      thinkingTableView.dataSource = self
+      thinkingTableView.delegate = self
+        print(thinkingTableView == nil)
+    }
+    else{
+        print("this is also nil")
     }
     
     if let aP = alarmPicker{
@@ -278,7 +287,11 @@ class FlowViewController:
     } else {
     recordingsManager.stopRecording()
       sender.isSelected = false
-      tableView.reloadData()
+      print("check if tableview is nil")
+        print (thinkingTableView == nil)
+        thinkingTableView.reloadData()
+        print("check if tableview is nil - after")
+        print (thinkingTableView == nil)
     }
     isRecording = !isRecording
   }
@@ -317,21 +330,30 @@ class FlowViewController:
         
         //TODO: figure out why this executes on view load instead of when pressing button, and how to make this less hacky
         if (alarmPicker != nil){
-            let alarm = Alarm(time: alarmPicker.date,isEnabled:true);
+            let alarms = alarmsManager.alarms;
+            let alarm = Alarm(time: alarmPicker.date, isEnabled:true);
              print(alarm)
              print("before adding")
              print(alarms)
-             alarms.append(alarm);
-             print("after adding"
-            )
+            
+            alarmsManager.addAlarm(alarm: alarm);
+            //alarms.append(alarm);
+            
+            print("after adding")
              print(alarms)
           
-            if (alarmTableView != nil){ alarmTableView.reloadData()
-                  print("not nil")
+            if (alarmTableView != nil){
+                let newIndexPath = IndexPath(row: alarms.count, section: 0)
+                alarmTableView.insertRows(at: [newIndexPath], with: .automatic)
+                print("not nil")
+            }
+            else{
+                print("alarmTableView doesn't exist");
             }
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "step7") as! FlowViewController
             self.navigationController?.pushViewController(newViewController, animated: true)
+            //set new_view_controller.alarms = old_view_controller.alarms
         }
 
     }
@@ -809,11 +831,15 @@ class FlowViewController:
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     //TODO: Put in separate delegate/data source classes
     if tableView == alarmTableView{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AlarmTableViewCell", for: indexPath) as! AlarmTableViewCell
-        cell.numAlarmLabel?.text = "Alarm \(indexPath.row+1)"
+        print("I'm here!")
+        print(alarmTableView == nil)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "alarmTableViewCell", for: indexPath) as! AlarmTableViewCell
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "AlarmTableViewCell", for: indexPath) as! AlarmTableViewCell
+        //cell.numAlarmLabel?.text = "Alarm \(indexPath.row+1)"
         return cell
     }
-    else if tableView == tableView{
+    else if tableView == thinkingTableView{
+        print(thinkingTableView == nil)
         let cell = tableView.dequeueReusableCell(withIdentifier: "rememberToThinkOfCell", for: indexPath) as! ThinkOfRecordingCell
         cell.label?.text = "Remember To Think Of (\(indexPath.row))"
         return cell
@@ -825,7 +851,7 @@ class FlowViewController:
   }
   
   @IBAction func startEditing(_ sender: Any) {
-    tableView.isEditing = !tableView.isEditing
+    thinkingTableView.isEditing = !thinkingTableView.isEditing
     let b = sender as! UIBarButtonItem
     b.title = (b.title == "Edit") ? "Done" : "Edit"
   }

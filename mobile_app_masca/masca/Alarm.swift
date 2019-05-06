@@ -8,7 +8,86 @@
 
 import Foundation
 
-class Alarm{
+struct Alarm:Codable{
+    var time: Date
+    var isEnabled: Bool
+    
+}
+
+class AlarmsManager:NSObject{
+    var alarms = [Alarm]()
+    var timeSet = Set<Date>(); //check for time uniqueness for alarms
+    //var alarms = [Date : Alarm]()
+    static let shared = AlarmsManager();
+    
+    private override init(){
+        super.init();
+        
+        let defaults = UserDefaults.standard;
+        let decoder = JSONDecoder();
+        
+        let savedAlarms = defaults.object(forKey: "alarms") as? Data;
+        let savedTimeSet = defaults.object(forKey: "timeSet") as? Data;
+        
+        if (savedAlarms != nil && savedTimeSet != nil){
+            do{
+                let loadedAlarms = try decoder.decode([Alarm].self, from: savedAlarms!)
+                let loadedTimeSet = try decoder.decode(Set<Date>.self, from: savedTimeSet!);
+                
+                alarms = loadedAlarms;
+                timeSet = loadedTimeSet;
+            }
+            catch{
+                fatalError("could not retrieve loaded alarms and timeset");
+            }
+        }        
+    }
+    
+    func addAlarm(alarm: Alarm){
+     
+        if (!timeSet.contains(alarm.time)){
+        alarms.append(alarm);
+        timeSet.insert(alarm.time);
+        }
+     
+        let encoder = JSONEncoder()
+        if let encodedAlarms = try? encoder.encode(alarms){
+            let defaults = UserDefaults.standard
+            defaults.set(encodedAlarms, forKey:"alarms");
+        }
+        
+        if let encodedTimeSet = try? encoder.encode(timeSet){
+            let defaults = UserDefaults.standard
+            defaults.set(encodedTimeSet, forKey:"timeSet");
+        }
+    }
+     
+    func deleteAlarm(index: Int){
+        let deletedAlarm = alarms[index];
+        timeSet.remove(deletedAlarm.time);
+        alarms.remove(at:index);
+    }
+
+    /*func addAlarm(time: Date, isEnabled: Bool){
+        let newAlarm = Alarm(time: time, isEnabled: isEnabled);
+        
+        if let a = alarms[time]{
+            alarms[time] = a;
+        }else{
+            alarms[time] = newAlarm;
+        }
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(alarms){
+            let defaults = UserDefaults.standard
+            defaults.set(encoded, forKey:"alarms");
+        }
+    }
+
+    func deleteAlarm(time: Date){
+        alarms.removeValue(forKey: time);
+    }*/
+}
+/*class Alarm{
     var time: Date = Date()
     var isEnabled: Bool = false
     
@@ -16,6 +95,5 @@ class Alarm{
         self.time = time;
         self.isEnabled = isEnabled;
     }
-}
-
+}*/
 

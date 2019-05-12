@@ -1,0 +1,57 @@
+2019-04-24 01:10:14.769 EDT [17977] LOG:  listening on IPv6 address "::1", port 5432
+2019-04-24 01:10:14.769 EDT [17977] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-04-24 01:10:14.770 EDT [17977] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-04-24 01:10:14.783 EDT [17978] LOG:  database system was shut down at 2019-04-24 01:10:08 EDT
+2019-04-24 01:10:14.787 EDT [17977] LOG:  database system is ready to accept connections
+2019-04-24 01:11:12.488 EDT [18172] FATAL:  lock file "postmaster.pid" already exists
+2019-04-24 01:11:12.488 EDT [18172] HINT:  Is another postmaster (PID 17977) running in data directory "/usr/local/var/postgres"?
+2019-04-24 01:11:19.876 EDT [18179] FATAL:  lock file "postmaster.pid" already exists
+2019-04-24 01:11:19.876 EDT [18179] HINT:  Is another postmaster (PID 17977) running in data directory "/usr/local/var/postgres"?
+2019-04-24 01:16:12.591 EDT [18196] ERROR:  syntax error at or near "create" at character 54
+2019-04-24 01:16:12.591 EDT [18196] STATEMENT:  create table bank (username string primary key,
+	bank
+	create table bank (username varchar(100) primary key, fullname varchar(100) not null, balance int not null)
+	)
+	create table bank (username varchar(100) primary key, fullname varchar(100) not null, balance int not null)
+	create table bank (username varchar(100) primary key, fullname varchar(100) not null, balance int not null);
+2019-04-24 01:18:23.244 EDT [18196] ERROR:  syntax error at or near "TABLE" at character 20
+2019-04-24 01:18:23.244 EDT [18196] STATEMENT:  SELECT * FROM bank
+	TABLE bank
+	TABLE bank;
+2019-04-24 01:19:08.035 EDT [18196] ERROR:  syntax error at or near "SELECT" at character 59
+2019-04-24 01:19:08.035 EDT [18196] STATEMENT:  insert into bank values ('bitdiddl', 'Ben Bitdiddle', 65)
+	SELECT * FROM bank;
+2019-04-24 01:21:02.915 EDT [18196] ERROR:  relation "account" does not exist at character 13
+2019-04-24 01:21:02.915 EDT [18196] STATEMENT:  insert into account values ('chuck', 'Charles Robinson', 55);
+2019-04-24 01:21:09.039 EDT [18196] ERROR:  current transaction is aborted, commands ignored until end of transaction block
+2019-04-24 01:21:09.039 EDT [18196] STATEMENT:  insert into bank values ('chuck', 'Charles Robinson', 55);
+2019-04-24 01:23:13.856 EDT [18196] ERROR:  syntax error at or near "SERIAlIZABLE" at character 17
+2019-04-24 01:23:13.856 EDT [18196] STATEMENT:  SET TRANSACTION SERIAlIZABLE;
+2019-04-24 01:23:20.586 EDT [18196] ERROR:  syntax error at or near "SERIALIZABLE" at character 17
+2019-04-24 01:23:20.586 EDT [18196] STATEMENT:  SET TRANSACTION SERIALIZABLE;
+2019-04-24 01:23:36.840 EDT [18196] ERROR:  syntax error at or near "SERIALIZABLE" at character 17
+2019-04-24 01:23:36.840 EDT [18196] STATEMENT:  SET TRANSACTION SERIALIZABLE;
+2019-04-24 01:23:57.832 EDT [18196] ERROR:  syntax error at or near "SERIALIZABLE" at character 17
+2019-04-24 01:23:57.832 EDT [18196] STATEMENT:  SET TRANSACTION SERIALIZABLE;
+2019-04-24 01:24:44.760 EDT [18196] ERROR:  syntax error at or near "SERIALIZABLE" at character 44
+2019-04-24 01:24:44.760 EDT [18196] STATEMENT:  SET SESSION CHARACTERISTICS AS TRANSACTION SERIALIZABLE;
+2019-04-24 01:25:02.916 EDT [18196] ERROR:  syntax error at or near "SERIALIZABLE" at character 44
+2019-04-24 01:25:02.916 EDT [18196] STATEMENT:  SET SESSION CHARACTERISTICS AS TRANSACTION SERIALIZABLE;
+2019-04-24 01:25:18.861 EDT [18196] ERROR:  syntax error at or near "COMMITTED" at character 49
+2019-04-24 01:25:18.861 EDT [18196] STATEMENT:  SET SESSION CHARACTERISTICS AS TRANSACTION READ COMMITTED;
+2019-04-24 01:30:23.506 EDT [18372] ERROR:  syntax error at or near "table" at character 15
+2019-04-24 01:30:23.506 EDT [18372] STATEMENT:  select * from table;
+2019-04-24 01:32:37.910 EDT [18196] ERROR:  syntax error at or near "(" at character 25
+2019-04-24 01:32:37.910 EDT [18196] STATEMENT:  delete from bank values ('chuck', 'Charles Robinson', 55);
+2019-04-24 01:33:15.818 EDT [18372] ERROR:  syntax error at or near "#" at character 1
+2019-04-24 01:33:15.818 EDT [18372] STATEMENT:  # set session characteristics as transaction isolation level serializable;
+2019-04-24 01:33:48.695 EDT [18196] WARNING:  there is no transaction in progress
+2019-04-24 02:07:49.083 EDT [18196] ERROR:  relation "accounts" does not exist at character 8
+2019-04-24 02:07:49.083 EDT [18196] STATEMENT:  update accounts set balance=balance-15 where username = 'bitdiddl'
+	;
+2019-04-24 02:09:59.076 EDT [18196] WARNING:  there is no transaction in progress
+2019-04-24 02:11:37.674 EDT [18196] ERROR:  relation "accounts" does not exist at character 8
+2019-04-24 02:11:37.674 EDT [18196] STATEMENT:  update accounts set balance=balance-15 where username='bitdiddl';
+2019-04-24 02:11:46.301 EDT [18196] ERROR:  current transaction is aborted, commands ignored until end of transaction block
+2019-04-24 02:11:46.301 EDT [18196] STATEMENT:  update bank set balance=balance-15 where username='bitdiddl';
+2019-04-24 02:12:45.903 EDT [18196] WARNING:  there is no transaction in progress

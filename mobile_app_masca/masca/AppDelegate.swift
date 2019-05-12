@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import UserNotifications
+import UserNotificationsUI
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
   var window: UIWindow?
 
@@ -41,8 +43,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if defaults.object(forKey: "deltaEDA") == nil {
       defaults.set(10, forKey: "deltaEDA")
     }
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (authorized:Bool, error:Error?) in
+        if !authorized{
+            print("Notifications not authorized, making this app p useless:(")
+        }
+        
+        let rehearseNotif = UNNotificationAction(identifier: "rehearseNotif", title: "Rehearse your memory", options: [])
+    }
+    
     return true
   }
+    
+    func scheduleNotification(date: Date){
+        UNUserNotificationCenter.current().delegate = self
+        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let triggerDate = Calendar.current.dateComponents([.hour, .minute, .second], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
+        
+        let content = UNMutableNotificationContent();
+        content.title = "Rehearse your memory!"
+        content.body = "It is time to rehearse your memory."
+        content.sound = UNNotificationSound.default()
+        
+        let request = UNNotificationRequest(identifier: "rehearseNotif", content: content, trigger: trigger)
+        
+    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().add(request){
+            (error: Error?) in
+            if let error = error{
+                print("Error \(error.localizedDescription)")
+            }
+        }
+        
+        
+    }
 
   func applicationWillResignActive(_ application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

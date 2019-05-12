@@ -108,8 +108,7 @@ class ViewController: UIViewController,
   
 //  var porcupineManager: PorcupineManager? = nil
   var falsePositive: Bool = false // whether the detected onset was a false positive
-  
-  
+    
   func dormioConnected() {
     print("Connected")
     self.connectButton.setTitle("CONNECTED", for: .normal)

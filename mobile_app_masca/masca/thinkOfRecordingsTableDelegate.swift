@@ -26,7 +26,10 @@ class thinkOfRecordingsTableDelegate: UIViewController, UITableViewDataSource, U
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
+    
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    print("or are we here")
+    
     if let urls = recordingsManager.audioMultiURLs[0] {
       return urls.count
     }

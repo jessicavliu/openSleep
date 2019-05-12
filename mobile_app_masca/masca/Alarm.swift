@@ -31,26 +31,28 @@ class AlarmsManager:NSObject{
         
         if (savedAlarms != nil && savedTimeSet != nil){
             do{
-                let loadedAlarms = try decoder.decode([Alarm].self, from: savedAlarms!)
+                /*let loadedAlarms = try decoder.decode([Alarm].self, from: savedAlarms!)
                 let loadedTimeSet = try decoder.decode(Set<Date>.self, from: savedTimeSet!);
                 
                 alarms = loadedAlarms;
-                timeSet = loadedTimeSet;
+                timeSet = loadedTimeSet;*/
             }
             catch{
-                fatalError("could not retrieve loaded alarms and timeset");
+                print("could not retrieve loaded alarms and timeset");
             }
         }        
     }
     
     func addAlarm(alarm: Alarm){
-     
         if (!timeSet.contains(alarm.time)){
-        alarms.append(alarm);
-        timeSet.insert(alarm.time);
+            print("do we get here???")
+            print("is the alarm nil")
+            print(alarm == nil)
+            alarms.append(alarm);
+            timeSet.insert(alarm.time);
         }
      
-        let encoder = JSONEncoder()
+        /*let encoder = JSONEncoder()
         if let encodedAlarms = try? encoder.encode(alarms){
             let defaults = UserDefaults.standard
             defaults.set(encodedAlarms, forKey:"alarms");
@@ -59,7 +61,10 @@ class AlarmsManager:NSObject{
         if let encodedTimeSet = try? encoder.encode(timeSet){
             let defaults = UserDefaults.standard
             defaults.set(encodedTimeSet, forKey:"timeSet");
-        }
+        }*/
+        
+        print("if we do, this is the state of alarms")
+        print(alarms)
     }
      
     func deleteAlarm(index: Int){

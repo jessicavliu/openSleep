@@ -11,13 +11,14 @@ import Foundation
 struct Alarm:Codable{
     var time: Date
     var isEnabled: Bool
-    
 }
 
 class AlarmsManager:NSObject{
-    var alarms = [Alarm]()
-    var timeSet = Set<Date>(); //check for time uniqueness for alarms
-    //var alarms = [Date : Alarm]()
+    var rehearseAlarms = [Alarm]()
+    var rehearseTimeSet = Set<Date>(); //check for time uniqueness for alarms
+    var learningAlarms = [Alarm]()
+    var learningTimeSet = Set<Date>();
+    
     static let shared = AlarmsManager();
     
     private override init(){
@@ -26,24 +27,55 @@ class AlarmsManager:NSObject{
         let defaults = UserDefaults.standard;
         let decoder = JSONDecoder();
         
-        let savedAlarms = defaults.object(forKey: "alarms") as? Data;
-        let savedTimeSet = defaults.object(forKey: "timeSet") as? Data;
+        /*let savedRehearseAlarms = defaults.object(forKey: "rehearseAlarms") as? Data;
+        let savedRehearseTimeSet = defaults.object(forKey: "rehearseTimeSet") as? Data;
+        let savedLearningAlarms = defaults.object(forKey: "learningAlarms") as? Data;
+        let savedLearningTimeSet = defaults.object(forKey: "learningTimeSet") as? Data;*/
         
-        if (savedAlarms != nil && savedTimeSet != nil){
+        /*if (savedRehearseAlarms != nil && savedRehearseTimeSet != nil){
             do{
-                /*let loadedAlarms = try decoder.decode([Alarm].self, from: savedAlarms!)
+                let loadedRehearseAlarms = try decoder.decode([Alarm].self, from: savedRehearseAlarms!);
+                let loadedRehearseTimeSet = try decoder.decode(Set<Date>.self, from: savedRehearseTimeSet!);
+                
+                rehearseAlarms = loadedRehearseAlarms;
+                rehearseTimeSet = loadedRehearseTimeSet;
+            }
+            catch{
+                print("could not load rehearse alarms and timeset");
+            }
+        }
+        
+        if (savedLearningAlarms != nil && savedLearningTimeSet != nil){
+            do{
+                let loadedLearningAlarms = try decoder.decode([Alarm].self, from: savedLearningAlarms!);
+                let loadedLearningTimeSet = try decoder.decode(Set<Date>.self, from: savedLearningTimeSet!);
+                
+                learningAlarms = loadedLearningAlarms;
+                learningTimeSet = loadedLearningTimeSet;
+            }
+            catch{
+                print("could not load learning alarms and timeset");
+            }
+        }*/
+        /*if (savedAlarms != nil && savedTimeSet != nil){
+            do{
+                let loadedAlarms = try decoder.decode([Alarm].self, from: savedAlarms!)
                 let loadedTimeSet = try decoder.decode(Set<Date>.self, from: savedTimeSet!);
                 
                 alarms = loadedAlarms;
-                timeSet = loadedTimeSet;*/
+                timeSet = loadedTimeSet;
             }
             catch{
                 print("could not retrieve loaded alarms and timeset");
             }
-        }        
+        }*/
     }
     
-    func addAlarm(alarm: Alarm){
+    
+    func addAlarm(alarm: Alarm, alarms: inout [Alarm], timeSet: inout Set<Date>){
+        //var alarms = alarms;
+        //var timeSet = timeSet;
+        
         if (!timeSet.contains(alarm.time)){
             print("do we get here???")
             print("is the alarm nil")
@@ -66,39 +98,33 @@ class AlarmsManager:NSObject{
         print("if we do, this is the state of alarms")
         print(alarms)
     }
+    
+    func encodeAlarms(alarms: [Alarm], timeSet: Set<Date>, alarmKey: String, timeSetKey: String){
+        let encoder = JSONEncoder()
+        if let encodedAlarms = try? encoder.encode(alarms){
+            let defaults = UserDefaults.standard
+            defaults.set(encodedAlarms, forKey:alarmKey);
+        }
+         
+        if let encodedTimeSet = try? encoder.encode(timeSet){
+            let defaults = UserDefaults.standard
+            defaults.set(encodedTimeSet, forKey:timeSetKey);
+        }
+    }
+    
+    func addRehearseAlarm(alarm: Alarm){
+        addAlarm(alarm: alarm, alarms: &rehearseAlarms, timeSet: &rehearseTimeSet)
+        encodeAlarms(alarms: rehearseAlarms, timeSet: rehearseTimeSet, alarmKey: "rehearseAlarms", timeSetKey: "rehearseTimeSet")
+    }
+    
+    func addLearningAlarm(alarm: Alarm){
+        addAlarm(alarm: alarm, alarms: &learningAlarms, timeSet: &learningTimeSet)
+        encodeAlarms(alarms: learningAlarms, timeSet: learningTimeSet, alarmKey: "learningAlarms", timeSetKey: "learningTimeSet")
+    }
      
-    func deleteAlarm(index: Int){
+    /*func deleteAlarm(index: Int){
         let deletedAlarm = alarms[index];
         timeSet.remove(deletedAlarm.time);
         alarms.remove(at:index);
-    }
-
-    /*func addAlarm(time: Date, isEnabled: Bool){
-        let newAlarm = Alarm(time: time, isEnabled: isEnabled);
-        
-        if let a = alarms[time]{
-            alarms[time] = a;
-        }else{
-            alarms[time] = newAlarm;
-        }
-        let encoder = JSONEncoder()
-        if let encoded = try? encoder.encode(alarms){
-            let defaults = UserDefaults.standard
-            defaults.set(encoded, forKey:"alarms");
-        }
-    }
-
-    func deleteAlarm(time: Date){
-        alarms.removeValue(forKey: time);
     }*/
 }
-/*class Alarm{
-    var time: Date = Date()
-    var isEnabled: Bool = false
-    
-    init(time: Date, isEnabled: Bool){
-        self.time = time;
-        self.isEnabled = isEnabled;
-    }
-}*/
-

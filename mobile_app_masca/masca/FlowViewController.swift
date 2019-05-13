@@ -57,11 +57,14 @@ class FlowViewController:
   
     @IBOutlet weak var thinkingTableView: UITableView!
     //@IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var alarmTableView: UITableView!
+    @IBOutlet weak var rehearseTableView: UITableView!
+    @IBOutlet weak var learningTableView: UITableView!
     @IBOutlet weak var photoStimulusView: UIImageView!
     @IBOutlet weak var alarmPicker: UIDatePicker!
+    
     @IBOutlet weak var alarmLabel: UILabel!
     @IBOutlet weak var addAlarmButton: UIButton!
+    @IBOutlet weak var addAlarmButton2: UIButton!
     
   var autoCompleteCharacterCount = 0
   var autoCompleteTimer = Timer()
@@ -112,7 +115,7 @@ class FlowViewController:
   //var alarms = [Alarm]()
   var alarmString: String?
     
-    var anAlarmTableDelegate = alarmTableDelegate();
+    //var anAlarmTableDelegate = alarmTableDelegate();
     var recordingsTableDelegate = thinkOfRecordingsTableDelegate()
     
   func getDeviceUUID() {
@@ -172,7 +175,7 @@ class FlowViewController:
         activeView = 5;
     }
     
-    if dreamButton != nil {
+    /*if dreamButton != nil {
       dormioManager.delegate = self
       activeView = 6
       microphoneImage.isHidden = true
@@ -180,17 +183,25 @@ class FlowViewController:
       EDALabel.text = ""
       flexLabel.text = ""
       timerFalsePositiveButton.isHidden = true
-    }
+    }*/
     
     getDeviceUUID()
     
-    if let aTV = alarmTableView {
-        alarmTableView.dataSource = self;
-        alarmTableView.delegate = self;
-        print(alarmTableView == nil)
+    if let rTV = rehearseTableView {
+        rehearseTableView.dataSource = self;
+        rehearseTableView.delegate = self;
+        print(rehearseTableView == nil)
+        activeView = 6
     }
     else{
         print("WHY IS THIS NIL?????")
+    }
+    
+    if let lTV = learningTableView {
+        learningTableView.dataSource = self;
+        learningTableView.delegate = self;
+        print(learningTableView == nil)
+        activeView = 7
     }
     
     if let tV = thinkingTableView {
@@ -205,6 +216,10 @@ class FlowViewController:
     if let aP = alarmPicker{
         alarmPicker.datePickerMode = UIDatePickerMode.time;
     }
+    
+    /*if let aP2 = alarmPicker2{
+        alarmPicker2.datePickerMode = UIDatePickerMode.time;
+    }*/
     
     // Do any additional setup after loading the view.
 }
@@ -305,7 +320,7 @@ class FlowViewController:
     let newViewController = storyBoard.instantiateViewController(withIdentifier: "step3") as! FlowViewController
     self.navigationController?.pushViewController(newViewController, animated: true)
   }
-    @IBAction func alarmPickerChanged(_ sender: Any) {
+    /*@IBAction func alarmPickerChanged(_ sender: Any) {
             print("am changing")
             let alarmFormatter = DateFormatter();
             print(alarmPicker == nil)
@@ -322,44 +337,89 @@ class FlowViewController:
              print(alarmString)
              
              alarmLabel.text = alarmString;
-    }
+    }*/
     
-    @IBAction func addAlarm(_ sender: Any) {
+    @IBAction func addRehearseAlarm(_ sender: Any) {
             print("touched add alarm")
             print(alarmPicker == nil)
-            
-            //TODO: figure out why this executes on view load instead of when pressing button, and how to make this less hacky
-            if (alarmPicker != nil){
-                let alarms = alarmsManager.alarms;
-                let alarm = Alarm(time: alarmPicker.date, isEnabled:true);
-                print(alarm)
+        
+            let alarms = alarmsManager.rehearseAlarms;
+            let alarm = Alarm(time: alarmPicker.date, isEnabled:true);
+            print(alarm)
+        
+            print("before adding")
+            let beforeAddingCount = alarmsManager.rehearseAlarms.count
+            print(alarms)
+            alarmsManager.addRehearseAlarm(alarm: alarm);
+            addReminder(date: alarm.time);
+            print("after adding")
+            let afterAddingCount = alarmsManager.rehearseAlarms.count
+            print(alarmsManager.rehearseAlarms)
+        
+            print ("check if rehearseTableView = nil: \(rehearseTableView == nil)")
+        
+            if (afterAddingCount > beforeAddingCount){
+                let newIndexPath = IndexPath(row: alarmsManager.rehearseAlarms.count-1, section: 0)
+                print("new indexPath")
+                print(newIndexPath)
+                print(alarmsManager.rehearseAlarms.count)
+                rehearseTableView.insertRows(at: [newIndexPath], with: .automatic)
                 
-                print("before adding")
-                let beforeAddingCount = alarmsManager.alarms.count
-                print(alarms)
-                alarmsManager.addAlarm(alarm: alarm);
-                addReminder(date: alarm.time);
-                print("after adding")
-                let afterAddingCount = alarmsManager.alarms.count
-                print(alarmsManager.alarms)
-                
-                print ("check if alarmTableView = nil: \(alarmTableView == nil)")
-                if (afterAddingCount > beforeAddingCount){
-                    let newIndexPath = IndexPath(row: alarmsManager.alarms.count-1, section: 0)
-                    print("new indexPath")
-                    print(newIndexPath)
-                    print(alarms.count)
-                    alarmTableView.insertRows(at: [newIndexPath], with: .automatic)
-                }
-
-                /*let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                 let newViewController = storyBoard.instantiateViewController(withIdentifier: "step7") as! FlowViewController
-                 self.navigationController?.pushViewController(newViewController, animated: true)*/
-                //set new_view_controller.alarms = old_view_controller.alarms
+                alarmsManager.rehearseAlarms = alarmsManager.rehearseAlarms.sorted(by: { $0.time < $1.time })
+                rehearseTableView.reloadData()
+                continue3Button.isEnabled = true
             }
+        debugAlarmManagerFields();
     }
     
+    @IBAction func addLearningAlarm(_ sender: Any) {
+        print("touched add alarm")
+        print(alarmPicker == nil)
+        
+        //TODO: figure out why this executes on view load instead of when pressing button, and how to make this less hacky
+        if (alarmPicker != nil){
+            let alarms = alarmsManager.learningAlarms;
+            let alarm = Alarm(time: alarmPicker.date, isEnabled:true);
+            print(alarm)
+            
+            print("before adding")
+            let beforeAddingCount = alarmsManager.learningAlarms.count
+            print(alarms)
+            alarmsManager.addLearningAlarm(alarm: alarm);
+            addReminder(date: alarm.time);
+            print("after adding")
+            let afterAddingCount = alarmsManager.learningAlarms.count
+            print(alarmsManager.learningAlarms)
+            
+            print ("check if alarmTableView = nil: \(learningTableView == nil)")
+            if (afterAddingCount > beforeAddingCount){
+                let newIndexPath = IndexPath(row: alarmsManager.learningAlarms.count-1, section: 0)
+                print("new indexPath")
+                print(newIndexPath)
+                print(alarmsManager.learningAlarms.count)
+                learningTableView.insertRows(at: [newIndexPath], with: .automatic)
+                alarmsManager.learningAlarms = alarmsManager.learningAlarms.sorted(by: { $0.time < $1.time })
+                continue3Button.isEnabled = true
+            }
+        }
+    }
     
+    func sortAlarmDataSource(dataSource: inout [Alarm], tableView: inout UITableView){
+        dataSource = dataSource.sorted(by: { $0.time < $1.time })
+        tableView.reloadData()
+    }
+    
+    func debugAlarmManagerFields(){
+        print("rehearseAlarms")
+        print(alarmsManager.rehearseAlarms)
+        print("rehearseTimeSet")
+        print(alarmsManager.rehearseTimeSet)
+        print("learningAlarms")
+        print(alarmsManager.learningAlarms)
+        print("learningTimeSet")
+        print(alarmsManager.learningTimeSet)
+    }
+
     func addReminder(date: Date){
         appDelegate?.scheduleNotification(date: date)
     }
@@ -842,14 +902,18 @@ class FlowViewController:
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("numberOfRowsInSection")
         
-        if tableView == alarmTableView{
-            print("retrieved count")
-            print(alarmsManager.alarms.count)
-            return alarmsManager.alarms.count
+        if tableView == rehearseTableView{
+            print("rehearse")
+            print(alarmsManager.rehearseAlarms.count)
+            return alarmsManager.rehearseAlarms.count
+        }
+        else if tableView == learningTableView{
+            print("learning")
+            print(alarmsManager.learningAlarms.count)
+            return alarmsManager.learningAlarms.count
         }
             
         else if tableView == thinkingTableView{
-            print("in rows in section")
             return super.tableView(tableView, numberOfRowsInSection: section)
         }
         return 0
@@ -858,8 +922,8 @@ class FlowViewController:
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     print("cellForRowAt")
     //TODO: Put in separate delegate/data source classes
-    if tableView == alarmTableView{
-        print("alarmTableView")
+    if tableView == rehearseTableView{
+        print("rehearseTableView")
         let cell = tableView.dequeueReusableCell(withIdentifier: "alarmTableViewCell", for: indexPath) as! AlarmTableViewCell;
         
         func getDateString(alarm: Alarm) -> String{
@@ -869,10 +933,25 @@ class FlowViewController:
             return alarmString;
         }
         
-        alarmsManager.alarms = alarmsManager.alarms.sorted(by: { $0.time < $1.time })
+        //cell.timeLabel?.text = getDateString()
+        cell.timeLabel?.text = getDateString(alarm: alarmsManager.rehearseAlarms[indexPath.row])
+        cell.numAlarmLabel?.text = "Alarm \(indexPath.row+1)"
+        return cell
+    }
+        
+    if tableView == learningTableView{
+        print("learningTableView")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "alarmTableViewCell2", for: indexPath) as! AlarmTableViewCell;
+        
+        func getDateString(alarm: Alarm) -> String{
+            let alarmFormatter = DateFormatter();
+            alarmFormatter.timeStyle = DateFormatter.Style.short
+            let alarmString = alarmFormatter.string(from: alarm.time);
+            return alarmString;
+        }
         
         //cell.timeLabel?.text = getDateString()
-        cell.timeLabel?.text = getDateString(alarm: alarmsManager.alarms[indexPath.row])
+        cell.timeLabel?.text = getDateString(alarm: alarmsManager.learningAlarms[indexPath.row])
         cell.numAlarmLabel?.text = "Alarm \(indexPath.row+1)"
         return cell
     }
@@ -891,9 +970,16 @@ class FlowViewController:
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("didSelectRowAt")
-        if tableView == alarmTableView{
-            if self.alarmTableView == nil {
-                self.alarmTableView = tableView
+        if tableView == rehearseTableView{
+            print("rehearse")
+            if self.rehearseTableView == nil {
+                self.rehearseTableView = tableView
+            }
+        }
+        else if tableView == learningTableView{
+            print("learning")
+            if self.learningTableView == nil {
+                self.learningTableView = tableView
             }
         }
         else if tableView == thinkingTableView{
@@ -906,7 +992,12 @@ class FlowViewController:
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         print("canMoveRowAt")
-        if tableView == alarmTableView{
+        if tableView == rehearseTableView{
+            print("rehearse")
+            return false;
+        }
+        if tableView == learningTableView{
+            print("learning")
             return false;
         }
         else if tableView == thinkingTableView{
@@ -918,11 +1009,16 @@ class FlowViewController:
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         print("forRowAtIndexPath")
-        if tableView == alarmTableView{
+        if tableView == rehearseTableView{
             if editingStyle == .delete {
                 //Delete the row from the data source
-                alarmsManager.deleteAlarm(index: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                //alarmsManager.deleteAlarm(index: indexPath.row)
+                //tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
+        if tableView == learningTableView{
+            if editingStyle == .delete {
+                //Delete the row from the data source
             }
         }
         else if tableView == thinkingTableView{

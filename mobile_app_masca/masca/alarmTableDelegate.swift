@@ -4,7 +4,7 @@ import UIKit
 /*
  Provides delegate function defintions for UITableView, used to list and interact with alarms
  */
-class alarmTableDelegate: UIViewController, UITableViewDataSource, UITableViewDelegate {
+/*class alarmTableDelegate: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var alarmsManager = AlarmsManager.shared
     var alarmTableView: UITableView!
@@ -60,4 +60,4 @@ class alarmTableDelegate: UIViewController, UITableViewDataSource, UITableViewDe
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-}
+}*/
